@@ -6,7 +6,7 @@ export default function BookReader(props) {
   const router = useRouter();
   const { id } = router.query;
   const [book, setBook] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setLoading(true);

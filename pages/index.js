@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import MainPageHeader from '../components/MainPageHeader';
+import SearchInput from '../components/SearchInput';
 import Layout from '../layout/Layout';
 
 export default function Home() {
@@ -17,28 +18,45 @@ export default function Home() {
       });
   }, []);
 
-  if (isLoading) return <p>Loading...</p>;
-  if (!data) return <p>No profile data</p>;
-
   return (
     <Layout>
       <MainPageHeader />
-      <div>
-        {data.results.map((book, index) => (
-          <div key={index}>
-            <h1>{book.title}</h1>
-            <Link href={`/reader/${book.id}`} passHref>
-              <h2>
-                {
-                  book.resources.find(
-                    ({ type }) => type === 'application/epub+zip'
-                  ).uri
-                }
-              </h2>
-            </Link>
+
+      <SearchInput />
+      {isLoading ? (
+        <div className='flex justify-center pt-12'>
+          <div className='relative pr-12'>
+            <div
+              className='w-12 h-12 rounded-full absolute
+                                  border-4 border-solid border-gray-200'
+            ></div>
+
+            <div
+              className='w-12 h-12 rounded-full animate-spin absolute
+                                  border-4 border-solid border-[#5A7D7C] border-t-transparent'
+            ></div>
           </div>
-        ))}
-      </div>
+        </div>
+      ) : !data ? (
+        <p>No profile data</p>
+      ) : (
+        <div>
+          {data.results.map((book, index) => (
+            <div key={index}>
+              <h1>{book.title}</h1>
+              <Link href={`/reader/${book.id}`} passHref>
+                <h2>
+                  {
+                    book.resources.find(
+                      ({ type }) => type === 'application/epub+zip'
+                    ).uri
+                  }
+                </h2>
+              </Link>
+            </div>
+          ))}
+        </div>
+      )}
     </Layout>
   );
 }
