@@ -45,7 +45,7 @@ export default function NavBar() {
 
   return (
     <header className='h-15 shadow-sm dark:border-gray-700'>
-      <nav className='container  px-4 sm:px-6 py-4 flex flex-wrap justify-between items-center'>
+      <nav className='container w-full px-4 sm:px-6 py-4 flex flex-wrap justify-between items-center'>
         <Logo />
         {darkModeButton()}
         <button
