@@ -1,13 +1,10 @@
 import Head from 'next/head';
+import Layout from '../layout/Layout';
 
 export default function Home() {
   return (
-    <div>
-      <Head>
-        <title>Bookgarden</title>
-        <meta name='description' content='ebook reader' />
-        <link rel='icon' href='/bgicon.ico' />
-      </Head>
-    </div>
+    <Layout>
+      <h1>hello next</h1>
+    </Layout>
   );
 }
