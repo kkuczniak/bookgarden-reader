@@ -10,7 +10,7 @@ export default function BookReader(props) {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`https://gnikdroy.pythonanywhere.com/api/book/${id}`)
+    fetch(`https://gutendex.com/books/${id}`)
       .then((res) => res.json())
       .then((book) => {
         setBook(book);
@@ -20,7 +20,7 @@ export default function BookReader(props) {
 
   if (loading) return <p>Loading...</p>;
   if (!book) return <p>No profile data</p>;
-  console.log(book1);
+
   return (
     <Layout>
       <h1>{book.title}</h1>

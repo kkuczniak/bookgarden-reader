@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function MainPageHeader() {
   return (
-    <header className='my-2 pb-2 flex flex-row dark:border-b dark:border-gray-700'>
+    <header className='my-2 pb-2 flex flex-row border-b border-black dark:border-gray-700'>
       <div className='left pl-2 w-1/2'>
         <Image
           src='/gutenberg.webp'

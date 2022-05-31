@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import MainPageHeader from '../components/MainPageHeader';
@@ -10,7 +11,7 @@ export default function Home() {
 
   useEffect(() => {
     setLoading(true);
-    fetch('https://gnikdroy.pythonanywhere.com/api/book')
+    fetch('https://gutendex.com/books')
       .then((res) => res.json())
       .then((data) => {
         setData(data);
@@ -40,19 +41,39 @@ export default function Home() {
       ) : !data ? (
         <p>No profile data</p>
       ) : (
-        <div>
+        <div className='inline-grid grid-cols-1 md:grid-cols-2'>
           {data.results.map((book, index) => (
-            <div key={index}>
-              <h1>{book.title}</h1>
-              <Link href={`/reader/${book.id}`} passHref>
-                <h2>
-                  {
-                    book.resources.find(
-                      ({ type }) => type === 'application/epub+zip'
-                    ).uri
-                  }
-                </h2>
-              </Link>
+            <div
+              key={index}
+              className='flex flex-col justify-center items-center py-2'
+            >
+              {book.formats['image/jpeg'] ? (
+                <Image
+                  src={book.formats['image/jpeg']}
+                  width={200}
+                  height={300}
+                  layout='fixed'
+                />
+              ) : (
+                <Image
+                  src={'/altBookImage.webp'}
+                  width={200}
+                  height={300}
+                  layout='fixed'
+                />
+              )}
+              <h1 className='font-Lora pt-4'>{book.title}</h1>
+              <h2 className='font-Lora'>{book.authors[0].name}</h2>
+              <div className='buttons py-2 flex flex-row'>
+                <Link href={`/reader/${book.id}`} passHref>
+                  <a className='flex mx-2 px-2 items-center text-black uppercase rounded  py-1.5 text-sm font-semibold transition hover:opacity-75 md:py-2.5  bg-[#a0c1d1]'>
+                    Read this book
+                  </a>
+                </Link>
+                <button className='flex px-2 mx-2 items-center text-black uppercase rounded py-1.5 text-sm font-semibold transition hover:opacity-75 md:py-2.5 bg-[#b5b2c2]'>
+                  add to favorites
+                </button>
+              </div>
             </div>
           ))}
         </div>
