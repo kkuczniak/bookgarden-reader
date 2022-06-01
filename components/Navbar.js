@@ -75,12 +75,12 @@ export default function NavBar() {
           <div className='lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto'>
             <Link href='/about' passHref>
               <a className='lg:inline-flex flex lg:w-auto w-full text-lg px-3 py-2 rounded text-black dark:text-white  items-center justify-center  '>
-                O nas
+                About
               </a>
             </Link>
             <Link href='/favorites' passHref>
               <a className='lg:inline-flex flex lg:w-auto w-full text-lg px-3 py-2 rounded text-black  dark:text-white items-center justify-center '>
-                Ulubione
+                Favorites
               </a>
             </Link>
           </div>
