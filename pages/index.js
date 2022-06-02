@@ -40,9 +40,9 @@ export default function Home() {
       ) : !data ? (
         <p>No profile data</p>
       ) : (
-        <div className='inline-grid grid-cols-1 md:grid-cols-2'>
-          {data.results.map((book) => (
-            <BookCard book={book} />
+        <div className='inline-grid grid-cols-1 md:grid-cols-2 w-full'>
+          {data.results.map((book, index) => (
+            <BookCard key={index} book={book} />
           ))}
         </div>
       )}
