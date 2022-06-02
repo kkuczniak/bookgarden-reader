@@ -1,14 +1,22 @@
 import { useState } from 'react';
-import { SearchIcon } from '@heroicons/react/solid';
-import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 export default function SearchInput() {
   const [data, setData] = useState({ name: '' });
+  const router = useRouter();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    router.push({ pathname: '/searchPage', query: data });
+  };
 
   return (
-    <form className='flex flex-row justify-center py-2'>
+    <form
+      onSubmit={handleSubmit}
+      className='flex flex-row justify-center py-2 h-12 mb-5'
+    >
       <input
-        className='outline-slate-600 border rounded  border-[#5A7D7C] dark:border-0 focus:outline-none focus:ring-1 focus:ring-[#5A7D7C] pl-1 placeholder:italic'
+        className='outline-slate-600 border rounded bg-transparent dark:bg-gray-800 border-[#5A7D7C]  focus:outline-none focus:ring-1 focus:ring-[#5A7D7C] pl-1 placeholder:italic'
         type='text'
         required
         placeholder='Search books...'
@@ -19,13 +27,12 @@ export default function SearchInput() {
           })
         }
       ></input>
-      <Link href={{ pathname: '/searchPage', query: data }}>
-        <SearchIcon
-          className='h-8 pl-2 text-[#5A7D7C] dark:text-white'
-          role='input'
-          type='submit'
-        />
-      </Link>
+
+      <input
+        type='submit'
+        value='Search'
+        className='ml-2 px-1 cursor-pointer border rounded border-[#5A7D7C] hover:bg-slate-200 dark:hover:bg-gray-700 font-Lora '
+      />
     </form>
   );
 }
