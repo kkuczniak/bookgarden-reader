@@ -27,8 +27,10 @@ export default function BookCard({ book }) {
             layout='fixed'
           />
         )}
-        <p className='font-Lora pt-4'>{book.title}</p>
-        <p className='font-Lora'>{book.authors[0].name}</p>
+        <p className='flex justify-center font-Lora pt-4 w-4/5'>{book.title}</p>
+        <p className='flex justify-center font-Lora mt-2 text w-4/5'>
+          {book.authors[0].name}
+        </p>
         <div className='buttons py-2 flex flex-row'>
           <Link href={`/reader/${book.id}`} passHref>
             <a className='flex mx-2 px-2 items-center text-black uppercase rounded  py-1.5 text-sm font-semibold transition hover:opacity-75 md:py-2.5  bg-[#a0c1d1]'>

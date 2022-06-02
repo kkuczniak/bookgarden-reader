@@ -11,7 +11,7 @@ function FavoritesPage() {
   return (
     <Layout title='BookGarden - favorites'>
       <div className='my-2 pb-2 flex flex-row border-b border-black dark:border-gray-700'>
-        <h1 className='font-Lora tracking-wide leading-5 text-center pr-3 sm:pr-5 sm:text-xl md:text-2xl md:tracking-wider'>
+        <h1 className='font-Lora tracking-wide leading-5 text-center pr-3 sm:pr-5 ml-2 text-xl md:text-2xl md:tracking-wider'>
           Your Favorite Collection
         </h1>
       </div>
