@@ -18,7 +18,7 @@ export default function SearchPage() {
         setLoading(false);
         console.log(data);
       });
-  }, []);
+  }, [name]);
 
   return (
     <Layout title='Search Results' description='Gutenberg ebook search results'>
