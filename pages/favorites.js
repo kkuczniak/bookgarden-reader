@@ -9,7 +9,7 @@ function FavoritesPage() {
   const { favorites, removeBookFromFavorites } = useContext(GlobalContext);
 
   return (
-    <Layout title='BookGarden - favorites'>
+    <Layout title='Favorites' description='user favorites books list'>
       <div className='my-2 pb-2 flex flex-row border-b border-black dark:border-gray-700'>
         <h1 className='font-Lora tracking-wide leading-5 text-center pr-3 sm:pr-5 ml-2 text-xl md:text-2xl md:tracking-wider'>
           Your Favorite Collection
@@ -28,6 +28,7 @@ function FavoritesPage() {
                   width={200}
                   height={300}
                   layout='fixed'
+                  alt='Book Cover'
                 />
               ) : (
                 <Image
@@ -35,6 +36,7 @@ function FavoritesPage() {
                   width={200}
                   height={300}
                   layout='fixed'
+                  alt='Book Cover'
                 />
               )}
               <p className='font-Lora pt-4'>{book.title}</p>

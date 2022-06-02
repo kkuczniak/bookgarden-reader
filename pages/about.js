@@ -3,7 +3,7 @@ import Layout from '../layout/Layout';
 
 export default function About() {
   return (
-    <Layout>
+    <Layout title='About Us' description='Gutenberg Project Ebook'>
       <MainPageHeader />
       <div className='gutenberg font-Lora flex flex-col justify-center items-center text-center'>
         <h2 className='text-2xl'>Welcome to Project Gutenberg</h2>

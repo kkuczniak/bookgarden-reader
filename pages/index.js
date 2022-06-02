@@ -19,7 +19,7 @@ export default function Home() {
   }, []);
 
   return (
-    <Layout>
+    <Layout description='Free ebook collection '>
       <MainPageHeader />
 
       <SearchInput />

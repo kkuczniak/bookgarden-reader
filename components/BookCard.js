@@ -18,6 +18,7 @@ export default function BookCard({ book }) {
             width={200}
             height={300}
             layout='fixed'
+            alt='book cover'
           />
         ) : (
           <Image
@@ -25,6 +26,7 @@ export default function BookCard({ book }) {
             width={200}
             height={300}
             layout='fixed'
+            alt='book cover'
           />
         )}
         <p className='flex justify-center font-Lora pt-4 w-4/5'>{book.title}</p>

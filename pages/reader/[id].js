@@ -21,7 +21,7 @@ export default function BookReader(props) {
   }, [id]);
 
   return (
-    <Layout>
+    <Layout title='Reader' description='Reader ebook and download list'>
       <div className='my-2 pb-2 flex flex-row border-b border-black dark:border-gray-700'>
         <h1 className='font-Lora tracking-wide leading-5 text-center pr-3 sm:pr-5 ml-2 my-2 text-xl md:text-2xl md:tracking-wider'>
           Your Reading Options
@@ -51,6 +51,7 @@ export default function BookReader(props) {
               width={200}
               height={300}
               layout='fixed'
+              alt='Book Cover'
             />
           ) : (
             <Image
@@ -58,6 +59,7 @@ export default function BookReader(props) {
               width={200}
               height={300}
               layout='fixed'
+              alt='Book Cover'
             />
           )}
           <p className='font-Lora pt-4 text-base md:text-xl'>{book.title}</p>
